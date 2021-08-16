@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ecommerce-app-Deployment
+  name: ecommerce-app-deployment
   labels:
     app: ecommerce-app
 spec:
