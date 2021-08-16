@@ -3,7 +3,7 @@ pipeline{
     environment{
         scannerHome = tool 'sonar_scanner-dotnet'
         registry = 'bhardwajakash/devops_assessment'
-        docker_port = 7400
+        docker_port = null
         username = 'akashbhardwaj'
         container_name = "c-${username}-${BRANCH_NAME}"
         container_exist = "${bat(script:"docker ps -a -q -f name=${env.container_name}",returnStdout:true).trim().readLines().drop(1).join("")}"
@@ -13,6 +13,13 @@ pipeline{
             steps{
                 echo "Checkout from git repository"
                 checkout scm
+                script{
+                    if (BRANCH_NAME == 'master'){
+                        docker_port = 7200
+                    } else {
+                        docker_port = 7400
+                    }
+                }
             }
         }
         stage('Build'){
