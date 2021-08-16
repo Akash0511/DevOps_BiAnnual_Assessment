@@ -23,7 +23,7 @@ namespace Ecommerce.Controllers
         [HttpGet]
         public ActionResult<string> GetData()
         {
-            return "Hello from master branch";
+            return "Hello from feature branch";
         }
 
         [Route("api/[controller]")]
