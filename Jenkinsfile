@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        scannerHome = tool 'sonar_scanner-dotnet'
+        scannerHome = tool 'sonar_scanner_dotnet'
         registry = 'bhardwajakash/devops_assessment'
         docker_port = null
         username = 'akashbhardwaj'
