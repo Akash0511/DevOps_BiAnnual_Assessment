@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-app-Deployment
+  labels:
+    app: ecommerce-app
+spec:
+  replicas:3
+  selector:
+    matchLabels:
+      app: ecommerce-app
+  template:
+    metadata:
+      labels:
+        app: ecommerce-app
+    spec:
+      containers:
+        - name: ecommerce-app
+          image: bhardwajakash/devops_assessment:latest-feature
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
