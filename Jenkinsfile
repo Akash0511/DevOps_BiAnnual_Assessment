@@ -39,6 +39,8 @@ pipeline{
                 echo "start sonarqube analysis"
                 withSonarQubeEnv('Test_Sonar'){
                     bat "dotnet ${scannerHome}\\SonarScanner.MSBuild.dll begin /k:sonar-devops-akashbhardwaj /d:sonar.login=a1e7ade681b735fc04e3fe030a1385e78ba13bc7"
+                    bat "dotnet clean"
+                    bat "dotnet build"
                 }
             }
         }
